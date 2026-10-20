@@ -1,42 +1,43 @@
-# IRATXO — sitio público
+# IRATXO
 
-Presentación del producto y política de privacidad, en español, euskera e inglés.
-HTML y CSS. Sin backend, sin formulario y sin fuentes de terceros.
+Tu concentración construye tu mundo. Mientras te concentras, los Iratxoak trabajan en un claro.
+La aplicación vive en el teléfono: sin cuentas, sin anuncios y sin servidor.
 
-La app de Android sigue en su repositorio. Este existe para poder publicarlo en GitHub Pages
-sin abrir el código de la app.
+Este repositorio es la web pública: la presentación, quién la hace y la política de privacidad.
+Español, euskera e inglés. HTML y CSS, sin backend y sin fuentes de terceros.
 
-## Cómo publicarlo
+El código de la app está en otro repositorio.
 
-1. Crea un repositorio **público** vacío en tu cuenta de GitHub. Nombre sugerido: `iratxo-site`.
-   No añadas README ni licencia: este directorio ya tiene el primer commit.
-2. Desde esta carpeta:
+## Páginas
 
-```text
-git remote add origin https://github.com/TU_USUARIO/iratxo-site.git
-git push -u origin main
-```
-
-3. En el repositorio de GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-4. Espera a que el workflow `Pages` termine en verde. La URL queda en el entorno `github-pages`
-   del workflow, con forma `https://TU_USUARIO.github.io/iratxo-site/`.
-
-## Qué URL usar
-
-| Uso | Ruta |
+| Página | Ruta |
 |---|---|
 | Inicio | `/` |
 | Euskera | `/eu.html` |
 | Inglés | `/en.html` |
-| Política para Play (español) | `/privacy/es.html` |
-| Política en euskera | `/privacy/eu.html` |
-| Política en inglés | `/privacy/en.html` |
+| Cesferort | `/about/es.html`, `/about/eu.html`, `/about/en.html` |
+| Privacidad | `/privacy/es.html`, `/privacy/eu.html`, `/privacy/en.html` |
 
-Play Console quiere la de `privacy/es.html`. No escribas esa URL en la app ni en la ficha
-hasta que la página responda de verdad. Cuando responda, pásala junto con lo que haya que
-cambiar: el hueco está en el repo de la app, `docs/store/public-url.md`.
+Play Console usa `privacy/es.html`.
 
-## Qué mirar tú
+## Publicación
 
-La lista está en [`TESTING.md`](TESTING.md). Anota ahí, o en el chat, lo que haya que corregir.
-El vídeo del aviso de una sesión no está: se añadirá cuando exista el archivo.
+El remoto es [github.com/Cesferort/IRATXO-SITE](https://github.com/Cesferort/IRATXO-SITE).
+En el repositorio: **Settings → Pages → Source: GitHub Actions**.
+
+Cuando el workflow termine, la dirección es:
+
+`https://cesferort.github.io/IRATXO-SITE/`
+
+Esa URL no se escribe en la app hasta comprobar que la página responde. El hueco está en el
+repositorio de la app, `docs/store/public-url.md`.
+
+## Qué es la app, en corto
+
+Una sesión de concentración mide el tiempo de verdad. Ese tiempo es el que hace crecer el claro:
+población, noche y lo que los Iratxoak traen de vuelta. La inspiración es la mitología vasca,
+sin combate. El protagonista es quien se concentra.
+
+## Prueba
+
+[`TESTING.md`](TESTING.md).
