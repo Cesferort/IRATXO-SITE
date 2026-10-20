@@ -32,6 +32,7 @@ jobs:
           mkdir -p _site
           cp index.html eu.html en.html style.css embers.js _site/
           cp -r art privacy about _site/
+          find _site -name '*.html' -exec sed -i "s|style\\.css|style.css?v=${GITHUB_SHA}|" {} +
 
       - name: Subir el sitio
         uses: actions/upload-pages-artifact@v3
