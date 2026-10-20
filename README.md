@@ -37,7 +37,3 @@ repositorio de la app, `docs/store/public-url.md`.
 Una sesión de concentración mide el tiempo de verdad. Ese tiempo es el que hace crecer el claro:
 población, noche y lo que los Iratxoak traen de vuelta. La inspiración es la mitología vasca,
 sin combate. El protagonista es quien se concentra.
-
-## Prueba
-
-[`TESTING.md`](TESTING.md).
