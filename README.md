@@ -15,7 +15,7 @@ El código de la app está en otro repositorio.
 | Inicio | `/` |
 | Euskera | `/eu.html` |
 | Inglés | `/en.html` |
-| Cesferort | `/about/es.html`, `/about/eu.html`, `/about/en.html` |
+| Sobre mí | `/about/es.html`, `/about/eu.html`, `/about/en.html` |
 | Privacidad | `/privacy/es.html`, `/privacy/eu.html`, `/privacy/en.html` |
 
 Play Console usa `privacy/es.html`.
