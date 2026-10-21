@@ -84,11 +84,64 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  gap: 12px 20px;
+  gap: 4px 8px;
   width: min(1080px, calc(100% - 32px));
   margin: 0 auto;
   padding: 10px 16px;
 }
+
+.mark {
+  margin-right: auto;
+  color: var(--mist);
+  text-decoration: none;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.menu-check {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+@media (min-width: 801px) {
+  .menu-check { display: none; }
+}
+
+.burger {
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--mist);
+}
+
+.burger::before,
+.burger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: var(--mist);
+}
+
+.burger::before { top: -6px; }
+.burger::after { top: 6px; }
 
 .nav {
   display: flex;
@@ -180,6 +233,12 @@ h1 {
   margin: 16px 0 0;
   font-size: 1.35rem;
   max-width: 28rem;
+}
+
+.plain {
+  margin: 16px 0 0;
+  max-width: 38rem;
+  color: var(--muted);
 }
 
 .hero-art {
@@ -337,14 +396,40 @@ section.panel:hover {
   .hero,
   .cards { grid-template-columns: 1fr; }
   body { padding-top: 0; }
-  .bar { top: 0; width: 100%; margin: 0; border-radius: 0; padding: 6px 8px 8px; }
-  .nav > a { padding: 0 10px; }
-  .langs {
+  .bar { top: 0; width: 100%; margin: 0; border-radius: 0; padding: 6px 8px; }
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-left: 8px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .nav {
+    display: none;
     flex-basis: 100%;
-    justify-content: flex-end;
-    margin: 0;
-    padding: 2px 0 0;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 4px 0 8px;
+  }
+  .menu-check:checked ~ .nav { display: flex; }
+  .menu-check:focus-visible + .menu-toggle {
+    outline: 2px solid var(--lichen);
+    outline-offset: 3px;
+  }
+  .menu-check:checked + .menu-toggle .burger { background: transparent; }
+  .menu-check:checked + .menu-toggle .burger::before { top: 0; transform: rotate(45deg); }
+  .menu-check:checked + .menu-toggle .burger::after { top: 0; transform: rotate(-45deg); }
+  .langs {
+    flex-basis: auto;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 4px 0 0;
+    padding: 8px 0 0;
     border-left: 0;
+    border-top: 1px solid var(--bark);
   }
   article.page { padding: 24px 20px 36px; }
 }
