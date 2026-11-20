@@ -76,6 +76,33 @@ body {
   border: 0;
 }
 
+/* El enlace al sitio padre va a la izquierda y separado del resto: no es una
+   página hermana de ésta, se sale del sitio. Mezclarlo con la lista dejaría
+   «Inicio» sin un referente claro. */
+.home {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: auto;
+  min-height: 48px;
+  padding: 0 14px 0 10px;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  transition: color 220ms ease;
+}
+
+.home:hover { color: var(--lichen); }
+
+.home-arrow {
+  width: 14px;
+  height: 8px;
+  background: currentColor;
+  clip-path: polygon(0 50%, 42% 0, 42% 34%, 100% 34%, 100% 66%, 42% 66%, 42% 100%);
+}
+
 /* Barra fija, en una sola línea y alineada a la derecha. */
 .bar {
   position: sticky;
@@ -331,9 +358,15 @@ footer {
   backdrop-filter: blur(16px);
 }
 
+/* `both` fija el fotograma 0% mientras la animación sigue pendiente, y en una
+   pestaña que aún no compone eso deja el bloque invisible hasta que algo
+   fuerza un repintado. Con la opacidad declarada aparte y `forwards`, lo peor
+   que puede pasar es que no anime. */
 article.glass,
-.hero-copy {
-  animation: rise 700ms ease both;
+.hero-copy,
+.shots figure {
+  opacity: 1;
+  animation: rise 700ms ease forwards;
 }
 
 .cards article:nth-child(2) { animation-delay: 80ms; }
@@ -359,6 +392,38 @@ main .glass:hover {
   border-color: rgba(127, 191, 154, 0.85);
   background: rgba(28, 48, 38, 0.72);
   box-shadow: 0 22px 48px rgba(0, 0, 0, 0.34);
+}
+
+
+/* Capturas reales de la app, recortadas para quitar la barra de estado y la de
+   navegación del sistema. El alto se fija con aspect-ratio para que el hueco no
+   salte mientras cargan. */
+.shots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.shots figure {
+  margin: 0;
+  padding: 16px 16px 4px;
+  text-align: center;
+}
+
+.shots img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 840 / 1699;
+  border-radius: 14px;
+  border: 1px solid var(--bark);
+}
+
+.shots figcaption {
+  padding: 12px 4px 14px;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 /* Botón de la tienda. `.cta-soon` es el mismo botón apagado, mientras la app no esté publicada. */
@@ -413,6 +478,7 @@ main .glass:hover {
 @media (max-width: 800px) {
   .hero,
   .cards { grid-template-columns: 1fr; }
+  .shots { grid-template-columns: 1fr; }
   body { padding-top: 0; }
   .bar { top: 0; width: 100%; margin: 0; border-radius: 0; padding: 6px 8px; }
   .menu-toggle {
@@ -440,6 +506,7 @@ main .glass:hover {
   .menu-check:checked + .menu-toggle .burger { background: transparent; }
   .menu-check:checked + .menu-toggle .burger::before { top: 0; transform: rotate(45deg); }
   .menu-check:checked + .menu-toggle .burger::after { top: 0; transform: rotate(-45deg); }
+  .home { font-size: 0.72rem; padding-left: 6px; }
   .langs {
     flex-basis: auto;
     justify-content: flex-start;
@@ -456,5 +523,6 @@ main .glass:hover {
   html { scroll-behavior: auto; }
   .hero-art,
   article.glass,
-  .hero-copy { animation: none; }
+  .hero-copy,
+  .shots figure { animation: none; }
   }
