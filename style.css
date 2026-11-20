@@ -265,7 +265,7 @@ h1 {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   gap: 16px;
   margin-top: 28px;
 }
@@ -415,7 +415,7 @@ main .glass:hover {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 840 / 1699;
+  aspect-ratio: 760 / 1537;
   border-radius: 14px;
   border: 1px solid var(--bark);
 }
@@ -478,7 +478,7 @@ main .glass:hover {
 @media (max-width: 800px) {
   .hero,
   .cards { grid-template-columns: 1fr; }
-  .shots { grid-template-columns: 1fr; }
+  .shots { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
   body { padding-top: 0; }
   .bar { top: 0; width: 100%; margin: 0; border-radius: 0; padding: 6px 8px; }
   .menu-toggle {
